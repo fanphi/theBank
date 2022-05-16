@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    /* padding: 0; */
+}
+#depwith, #logout, #account-div{
+    display: none;
+}
+h1{
+    text-align: center;
+}
+header{
+    background-color: rgb(135, 124, 209);
+    min-height: 80px;
+    color: rgb(38, 38, 91);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#depwith, #account-div{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+}
+#register-form, #loginform, #deposit-form, #withdraw-form, #delete-form{
+    display: flex;
+    flex-direction: column;
+    max-width: 25%;
+    align-items: center;
+    justify-content: center;
+   
+  
+}
