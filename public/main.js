@@ -16,14 +16,6 @@ let registerForm = document.querySelector("#register-form");
 let depContainer = document.querySelector("#depwith");
 let accountInput = document.querySelector("#account-type");
 
-
-
-// const FORM_MODES = {
-//     CREATE: 'create',
-//     EDIT: 'edit'
-//   }
-//   let formMode = FORM_MODES.CREATE;
-
 loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
   
@@ -47,7 +39,7 @@ loginForm.addEventListener('submit', async (e) => {
 
   registerForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:4000/api/account/create", {
+    const res = await fetch("/api/account/create", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -77,12 +69,10 @@ loginForm.addEventListener('submit', async (e) => {
       logoutForm.style.display = "flex";
       registerForm.style.display = "none";
       loginForm.style.display = "none";
-    let renderAccount = async () => {
-        let accountResponse = await axios.get(`http://localhost:4000/api/account/${data.user._id}`);
-    
-        console.log(accountResponse);
-        let account = accountResponse.data
-    
+
+        let account = data.user
+      
+      
         let accountName = document.createElement("h3");
         let accountTotal = document.createElement("p");
         let accountNum = document.createElement("p");
@@ -98,8 +88,7 @@ loginForm.addEventListener('submit', async (e) => {
     
         accountContainer.append(accountName, accountType, accountNum, accountTotal);
     
-    }
-    renderAccount();
+  
     } else {
       console.log("sign in" + data)
     }
@@ -108,7 +97,7 @@ loginForm.addEventListener('submit', async (e) => {
         e.preventDefault();
   
       
-        await fetch(`http://localhost:4000/api/account/update/${data.user._id}`, {
+        await fetch(`/api/account/update/${data.user._id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'
@@ -138,7 +127,7 @@ loginForm.addEventListener('submit', async (e) => {
           if(data.user.total >= withdrawInput.value){
          
            
-          await fetch(`http://localhost:4000/api/account/update/${data.user._id}`, {
+          await fetch(`/api/account/update/${data.user._id}`, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json'
@@ -190,10 +179,4 @@ loginForm.addEventListener('submit', async (e) => {
   
   checkLoggedin();
 
-
-
-
-
-
-console.log(random);
 

@@ -26,30 +26,8 @@ app.use(session({
     }
   }));
 
-  const restrict = (req, res, next) => {
-    if (req.session.user) {
-      next();
-    } else {
-      res.status(401).send({ error: 'Unauthorized' });
-    }
-  }
-  
-  // app.post('/api/account/login', async (req, res) => {
-  //   const user = await accountCollection.findOne({ 
-  //     user: req.body.user,
-  //     password: req.body.password });
-  //   console.log(user);
-  //   if (user) {
-  //     req.session.user = user;
-      
-  //     res.json({
-  //       user: user.user
 
-  //     });
-  //   } else { 
-  //     res.status(401).json({ error: 'Unauthorized' });
-  //   }
-  // });
+  
   
   app.post('/api/account/login', async (req, res) => {
     const user = await accountCollection.findOne({ user: req.body.user });
@@ -101,27 +79,12 @@ app.use(session({
       account
     });
   });
-
-
-
-  
+ 
 
 app.get('/api/account/:id', async (req, res) => {
     const account = await accountCollection.findOne({ _id: ObjectId(req.params.id) });
     res.json(account);
   });
-
-//   app.post('/api/account/create', async (req, res) => {
-//     const account = {
-//       ...req.body,
-    
-//     };
-//     await accountCollection.insertOne(account);
-//     res.json({
-//       success: true,
-//       account
-//     });
-//   });
 
 
 app.post('/api/account/create', async (req, res) => {
@@ -142,23 +105,11 @@ app.post('/api/account/create', async (req, res) => {
   });
 });
 
-  // app.post('/api/account/create', async (req, res) => {
-  //   const hash = await bcrypt.hash(req.body.password, saltRounds);
-  
-  //   await accountCollection.insertOne({
-  //     user: req.body.user,
-  //     password: hash
-  //   });
-  
-  //   res.json({
-  //     success: true,
-  //     user: req.body.user
-  //   });
-  // });
 
   app.delete('/api/account/delete/:id', async (req, res) => {
     await accountCollection.deleteOne({ _id: ObjectId(req.params.id) });
     res.status(204).send();
   });
+
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
