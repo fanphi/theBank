@@ -18,6 +18,7 @@ let accountInput = document.querySelector("#account-type");
 let registerSection = document.querySelector("#register");
 let loginSection = document.querySelector("#login");
 let loginContainer = document.querySelector("#login-div");
+
 loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
   
@@ -75,13 +76,14 @@ loginForm.addEventListener('submit', async (e) => {
 
         let account = data.user
       
-      
+        let accountInfo = document.createElement("h2");
         let accountName = document.createElement("h3");
         let accountTotal = document.createElement("p");
         let accountNum = document.createElement("p");
         let accountType = document.createElement("p");
         let accountUser = document.querySelector("h2");
-
+        
+        accountInfo.innerText = "Account Info"
         accountUser.innerText = "Welcome " + account.user;
         accountName.innerText = "Name: " + account.name;
         accountType.innerText  = "Account type: " + account.accounttype;
@@ -89,8 +91,8 @@ loginForm.addEventListener('submit', async (e) => {
         accountNum.innerText = "Account number: " + account.accountnumber;
         
 
-        loginContainer.appendChild(accountUser);
-        accountContainer.append(accountName, accountType, accountNum, accountTotal);
+        loginContainer.append(accountUser);
+        accountContainer.append(accountInfo, accountName, accountType, accountNum, accountTotal);
     
   
     } else {

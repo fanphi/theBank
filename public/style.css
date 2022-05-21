@@ -9,7 +9,7 @@ section{
     border-radius: 5px;
     padding: 5%;
 }
-#depwith, #logout, #account-section, #login-div{
+#depwith, #logout, #login-div, #account-section{
     display: none;
 }
 h1{
@@ -95,4 +95,15 @@ h3{
 
 p{
     margin: 2%;
+}
+
+footer{
+    display: flex;
+    justify-content: space-evenly;
+    background-color:rgb(135, 124, 209) ;
+}
+ 
+p{
+    min-width: 150px;
+    text-align: center;
 }

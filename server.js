@@ -3,7 +3,7 @@ import session from 'express-session';
 import { MongoClient, ObjectId } from 'mongodb';
 import bcrypt from 'bcrypt';
 
-const port = 4000;
+const port = 3000;
 const app = express();
 const saltRounds = 10;
 
@@ -50,9 +50,9 @@ app.use(session({
       req.session.user = user;
 
       res.json({
-        _id: req.session._id,
-        user: req.session.user,
-        name: req.session.name
+       
+        user: req.session.user
+      
       });
     } else { 
       res.status(401).json({ error: 'Unauthorized' });
@@ -81,10 +81,6 @@ app.use(session({
   });
  
 
-app.get('/api/account/:id', async (req, res) => {
-    const account = await accountCollection.findOne({ _id: ObjectId(req.params.id) });
-    res.json(account);
-  });
 
 
 app.post('/api/account/create', async (req, res) => {
