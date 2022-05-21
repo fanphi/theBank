@@ -1,20 +1,38 @@
 *{
     margin: 0;
-    /* padding: 0; */
+  
 }
-#depwith, #logout, #account-div{
+
+section{
+    margin: 5% 0;
+    border: 2px solid darkblue;
+    border-radius: 5px;
+    padding: 5%;
+}
+#depwith, #logout, #account-section, #login-div{
     display: none;
 }
 h1{
     text-align: center;
+  margin-top: 2%;
+ 
+}
+h2{
+    margin-top: 10%;
 }
 header{
     background-color: rgb(135, 124, 209);
-    min-height: 80px;
+    min-height: 100px;
     color: rgb(38, 38, 91);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+nav{
+    display: flex;
+    justify-content: flex-end;
+    min-width: 100%;
 }
 main{
     display: flex;
@@ -22,17 +40,59 @@ main{
     justify-content: center;
     align-items: center;
 }
-#depwith, #account-div{
+#depwith, #account-section{
     flex-direction: column;
     justify-content: center;
     align-items: center;  
 }
-#register-form, #loginform, #deposit-form, #withdraw-form, #delete-form{
+#register-form, #register, #loginform, #deposit-form, #withdraw-form, #delete-form, #login{
     display: flex;
     flex-direction: column;
-    max-width: 25%;
+    max-width: 40%;
     align-items: center;
     justify-content: center;
    
   
+}
+input, label, button{
+margin: 2%;
+}
+
+button{
+    margin-top: 12%;
+    background-color: rgb(169, 162, 213);
+    border: none;
+    border-radius: 5px;
+    padding:5% 10% ;
+    color: rgb(38, 38, 91);
+
+}
+
+label{
+    min-width: 100px;
+}
+
+button:hover{
+    background-color: rgb(135, 124, 209);
+    color: rgb(38, 38, 91);
+}
+
+h3{
+    margin: 5% 0;
+}
+
+.logout-btn{
+    margin-right:50px;
+    margin-bottom: 15%;
+    min-width: 80px;
+    background-color: rgb(198, 192, 238);
+    margin-top: 2%;
+
+}
+.logout-btn:hover{
+    background-color:rgb(111, 101, 174) ;
+}
+
+p{
+    margin: 2%;
 }

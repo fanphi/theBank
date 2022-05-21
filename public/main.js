@@ -1,4 +1,4 @@
-let accountContainer = document.querySelector("#account-div");
+let accountContainer = document.querySelector("#account-section");
 let userInput = document.querySelector("#userName");
 let passwordInput = document.querySelector("#password");
 let totalInput = document.querySelector("#total");
@@ -15,7 +15,9 @@ let deleteForm = document.querySelector("#delete-form");
 let registerForm = document.querySelector("#register-form");
 let depContainer = document.querySelector("#depwith");
 let accountInput = document.querySelector("#account-type");
-
+let registerSection = document.querySelector("#register");
+let loginSection = document.querySelector("#login");
+let loginContainer = document.querySelector("#login-div");
 loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
   
@@ -67,8 +69,9 @@ loginForm.addEventListener('submit', async (e) => {
       depContainer.style.display = "flex";
       accountContainer.style.display = "flex";
       logoutForm.style.display = "flex";
-      registerForm.style.display = "none";
-      loginForm.style.display = "none";
+      loginContainer.style.display = "flex";
+      registerSection.style.display = "none";
+      loginSection.style.display = "none";
 
         let account = data.user
       
@@ -77,15 +80,16 @@ loginForm.addEventListener('submit', async (e) => {
         let accountTotal = document.createElement("p");
         let accountNum = document.createElement("p");
         let accountType = document.createElement("p");
+        let accountUser = document.querySelector("h2");
 
-    
+        accountUser.innerText = "Welcome " + account.user;
         accountName.innerText = "Name: " + account.name;
-        accountType.innerText = "Account type: " + account.accounttype;
+        accountType.innerText  = "Account type: " + account.accounttype;
         accountTotal.innerText = "Total: " + account.total;
         accountNum.innerText = "Account number: " + account.accountnumber;
         
 
-    
+        loginContainer.appendChild(accountUser);
         accountContainer.append(accountName, accountType, accountNum, accountTotal);
     
   
@@ -120,7 +124,7 @@ loginForm.addEventListener('submit', async (e) => {
         
       });
 
-    
+
 
         withdrawForm.addEventListener('submit', async (e) => {
           e.preventDefault();
@@ -149,7 +153,8 @@ loginForm.addEventListener('submit', async (e) => {
          
         }
         else{
-          alert("You do not have enough money for the withdrawal")
+          alert("You do not have enough money for the withdrawal. Please try another amount.");
+          location.reload()
         }
       
         });
